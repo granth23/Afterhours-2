@@ -1,4 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+import os
+import pathlib
+from flask import Flask, render_template, request, redirect, abort, session, url_for, jsonify
+import requests
+import cachecontrol
 from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 import google.auth.transport.requests
@@ -46,9 +50,18 @@ def callback():
         request=token_request,
         audience=GOOGLE_CLIENT_ID
     )
-    print(id_info)
+
+    session['name'] = id_info['name']
+    session['email'] = id_info['email']
+
     if 'bits-pilani.ac.in' not in id_info['email']:
         session.clear()
+        return redirect("/")
+
+    if 'f20220217' in session['email']:
+        session['admin'] = True
+    session['logged'] = True
+
     return redirect("/")
 
 @app.route("/logout")
@@ -60,7 +73,13 @@ def logout():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if 'logged' not in session:
+        return render_template('logIn.html')
+    else:
+        if session['admin'] == True:
+            return render_template('admin.html')
+        else:
+            return render_template('logOut.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
