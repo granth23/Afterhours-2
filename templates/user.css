@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100vw;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'ui-sans-serif', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+.login-button {
+    background-color: rgb(223, 197, 255);
+    width: 130px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'ui-sans-serif', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+.logo-button {
+    background-color: rgb(255, 255, 255);
+    padding: 0;
+    position: absolute;
+    font-size: 30px;
+    left: 0;
+    top: 0;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'Monsterrat', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+.google {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    flex-wrap: wrap;
+
+}
+.card {
+    /* width: 300px;
+    height: 400px; */
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    border: rgb(30, 26, 26) 5px solid;
+    /* border-radius: 10px; */
+    margin: 10px;
+}
+.photo {
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    /* border-radius: 100%; */
+    border: rgb(33, 28, 46) 5px solid;
+}
+.name {
+    margin: 0 auto;
+    font-size: 2rem;
+}
+.desc {
+    margin: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 250px;
+}
+.vote {
+    margin: 10px auto;
+    color: white;
+    background-color: rgb(76, 76, 54);
+    padding: 20px 60px;
+    text-decoration: none;
+    font-weight: 700;
+}
