@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='new_applicant.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+<body>
+    <nav>
+        <div class="logo">ANON<b>VOTE</b></div>
+        <img class="google" src="{{url_for('static', filename='image.png')}}" align="middle" />
+    </nav>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+
+
+            <div class="text-container">
+                <form method="POST">
+                    <label for="position" class="form-field">POSITION:</label>
+                    <input type="text" name="position" id="name" required class="form-input">
+                    <br>
+                    <label for="start" class="form-field">START TIME:</label>
+                    <input type="datetime-local" name="start" id="name" required class="form-input">
+                    <br>
+                    <label for="end" class="form-field">END TIME:</label>
+                    <input type="datetime-local" name="end" id="name" required class="form-input">
+                    <br>
+                    <button class="nota">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+    </form>
+    </div>
+    <script>
+        // Preview image before upload
+        document.getElementById('image').addEventListener('change', function (event) {
+            var preview = document.getElementById('preview');
+            var file = event.target.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

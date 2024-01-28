@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='user.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='home.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,15 +15,17 @@
 <body>
     <nav>
         <div class="logo">ANON<b>VOTE</b></div>
-        <div>
-            <img class="google" src="{{url_for('static', filename='image.png')}}" align="middle" />
-            <a class="logout" href="/logout">LOGOUT</a>
-        </div>
+        <img class="google" src="{{url_for('static', filename='image.png')}}" align="middle" />
     </nav>
     <br>
     <br>
     <br>
+    <h1>No Available Sessions</h1>
+    <div class="container">
+    <img class="home-img" src="{{url_for('static', filename='download.png')}}" align="middle" />
+    <div class="text">ANON<br><b>VOTE</b></div><br>
 
+</div>
 </body>
 
 </html>

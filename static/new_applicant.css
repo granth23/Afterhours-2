@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eeeee5;
+    font-family: 'ui-sans-serif', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+.login-button {
+    background-color: rgb(223, 197, 255);
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: 'ui-sans-serif', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+.logo-button {
+    background-color: rgb(255, 255, 255);
+    padding: 0;
+    position: absolute;
+    font-size: 30px;
+    left: 0;
+    top: 0;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+}
+
+.google {
+    width: 40px;
+    margin-right: 10px;
+    filter: brightness(130%) saturate(0%);
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    flex-wrap: wrap;
+
+}
+
+.card {
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    border: rgb(30, 26, 26) 5px solid;
+    margin: 10px;
+    width: 400px;
+    min-height: 650px;
+    background-color: #fffffa;
+    border-radius: 25px;
+}
+
+
+
+.name {
+    margin: 0 auto;
+    font-size: 2rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.desc {
+    margin: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 300px;
+    font-family: "Montserrat", monospace;
+}
+
+.vote {
+    margin: 10px auto;
+    color: white;
+    background-color: #530000;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    width: 90%;
+    font-family: "Montserrat", monospace;
+}
+
+nav {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    width: 100%;
+    height: 70px;
+    background-color: #530000;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    color: white;
+
+}
+
+.position {
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.position div {
+    margin: 0 410px;
+}
+
+.nota {
+    padding: 20px 40px;
+    background-color: #530000;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    width: 100%;
+}
+
+.title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.baap {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    max-width: 800px;
+}
+
+form img {
+    max-width: 100%;
+    height: auto;
+}
+
+form div {
+    flex: 1;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.form-field {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form-input {
+    border: 1px solid #ccc;
+    border-radiuposition: absolute;
+    left: 0;
+    tops: 4px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.form-input:focus {
+    border: 1px solid #ffffff;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    max-width: 800px;
+}
+
+form .image-container {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+form .image-container input[type="file"] {
+    display: none;
+}
+
+form .image-container label {
+    display: block;
+    width: 100%;
+    height: 500px;
+    border: 2px dashed #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+form .image-container label:hover {
+    background-color: #f8f8f8;
+}
+
+form .image-container img {
+    max-width: 100%;
+    max-height: 500px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+    display: block;
+    margin: auto;
+}
+.photo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 400px;
+    z-index: -10;
+}
+
+.preview{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}

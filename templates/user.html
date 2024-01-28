@@ -5,75 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="user.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='user.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
 <body>
-    <div class="login-button">
-        <img class="google" src="https://cdn.icon-icons.com/icons2/2648/PNG/512/logo_google_icon_160740.png">
-        <span>Log in</span>
+    <nav>
+        <div class="logo">ANON<b>VOTE</b></div>
+        <img class="google" src="{{url_for('static', filename='image.png')}}" align="middle" />
+    </nav>
+    <br>
+    <br>
+    <br>
+    {% for position in positions %}
+    <div class="position">
+        <div class="title">{{ position }}</div>
+        <a class="nota" href="/vote/{{position}}/NOTA">NO<b>TA</b></a>
     </div>
-    <div class="logo-button">
-        <img class="google" src="https://cdn.icon-icons.com/icons2/2648/PNG/512/logo_google_icon_160740.png">
-        <span>ANONVOTE</span>
-    </div>
-
     <div class="container">
+        {% for applicant in data[position]['applicants'] %}
+        {% if applicant != 'NOTA' %}
         <div class="card">
-            <img class="photo" src="https://static.generated.photos/vue-static/face-generator/landing/wall/6.jpg"
-                alt="">
-            <h2 class="name">Full Name</h2>
-            <p class="desc">One of the bsest leaders on campus, the campus will reach gr3at heights in their presence!!!
-            </p>
-            <a class="vote" href="">VOTE</a>
+            <img class="photo" src="{{ data[position][applicant]['image'] }}" alt="">
+            <h2 class="name">{{ data[position][applicant]['name'] }}</h2>
+            <p class="desc">{{ data[position][applicant]['desc'] }}</p>
+            <a class="vote" href="/vote/{{position}}/{{applicant}}">VOTE</a>
         </div>
-        
-        <div class="card">
-            <img class="photo" src="https://static.generated.photos/vue-static/face-generator/landing/wall/6.jpg"
-                alt="">
-            <h2 class="name">Full Name</h2>
-            <p class="desc">One of the bsest leaders on campus, the campus will reach gr3at heights in their presence!!!
-            </p>
-            <a class="vote" href="">VOTE</a>
-        </div>
-        
-        <div class="card">
-            <img class="photo" src="https://static.generated.photos/vue-static/face-generator/landing/wall/6.jpg"
-                alt="">
-            <h2 class="name">Full Name</h2>
-            <p class="desc">One of the bsest leaders on campus, the campus will reach gr3at heights in their presence!!!
-            </p>
-            <a class="vote" href="">VOTE</a>
-        </div>
-        
-        <div class="card">
-            <img class="photo" src="https://static.generated.photos/vue-static/face-generator/landing/wall/6.jpg"
-                alt="">
-            <h2 class="name">Full Name</h2>
-            <p class="desc">One of the bsest leaders on campus, the campus will reach gr3at heights in their presence!!!
-            </p>
-            <a class="vote" href="">VOTE</a>
-        </div>
-        <div class="card">
-            <img class="photo" src="https://media.istockphoto.com/id/1371214591/photo/outdoors-portrait-of-15-year-old-blonde-teen-girl-with-long-hair-in-white-t-shirt.webp?b=1&s=170667a&w=0&k=20&c=b2z2whhrJTe3T3ioAu1BMiOdqduJpllrHdds49CBDoQ="
-                alt="">
-            <h2 class="name">Full Name</h2>
-            <p class="desc">One of the bsest leaders on campus, the campus will reach gr3at heights in their presence!!!
-            </p>
-            <a class="vote" href="">VOTE</a>
-        </div>
-        <div class="card">
-            <img class="photo" src="https://static.generated.photos/vue-static/face-generator/landing/wall/6.jpg"
-                alt="">
-            <h2 class="name">Full Name</h2>
-            <p class="desc">One of the bsest leaders on campus, the campus will reach gr3at heights in their presence!!!
-            </p>
-            <a class="vote" href="">VOTE</a>
-        </div>
-        
-
+        {% endif %}
+        {% endfor %}
     </div>
-
+    {% endfor %}
 </body>
 
 </html>

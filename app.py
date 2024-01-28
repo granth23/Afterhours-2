@@ -6,6 +6,10 @@ import cachecontrol
 from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 import google.auth.transport.requests
+import base64
+from datetime import datetime
+
+from db import new_position, new_applicant, all_available_positions, aplicants_for_position, positions_for_voter, data_for_applicant, new_vote
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
@@ -71,15 +75,56 @@ def logout():
     return redirect("/")
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     if 'logged' not in session:
-        return render_template('logIn.html')
+        return render_template('logout.html')
     else:
-        if session['admin'] == True:
-            return render_template('admin.html')
+        if session['admin'] == False:
+            return render_template('home.html')
         else:
-            return render_template('logOut.html')
+            all_data = {}
+            positions = positions_for_voter(session['email'].split('@')[0])
+            if len(positions) == 0:
+                return render_template('login.html', positions = positions, data = all_data)
+            else:
+                for i in positions:
+                    all_data[i] = {}
+                    applicants = aplicants_for_position(i)
+                    all_data[i]['applicants'] = applicants
+                    for j in applicants:
+                        all_data[i][j] = data_for_applicant(j)
+                return render_template('user.html', positions = positions, data = all_data)
+
+@app.route('/new-position', methods=['GET', 'POST'])
+def new_positions():
+    if request.method == 'POST':
+        position = request.form.get('position')
+        start_timestamp = request.form.get('start')
+        end_timestamp = request.form.get('end')
+        new_position(position, start_timestamp, end_timestamp)
+
+    return render_template('new_position.html')
+
+
+@app.route('/new-applicant', methods=['GET', 'POST'])
+def new_applicants():
+    if request.method == 'POST':
+        position = request.form.get('position')
+        name = request.form.get('name')
+        email = request.form.get('email')
+        desc = request.form.get('desc')
+        file = request.files['file']
+        file.save("image.png")
+
+        new_applicant(position, name, email, desc)
+
+    return render_template('new_applicant.html', positions = all_available_positions())
+
+@app.route('/vote/<position>/<userid>', methods=['GET', 'POST'])
+def vote(position, userid):
+    new_vote(position, session['email'].split('@')[0], userid)
+    return redirect("/")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port = 5000)
