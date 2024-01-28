@@ -77,10 +77,11 @@ def logout():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    print(session)
     if 'logged' not in session:
         return render_template('logout.html')
     else:
-        if session['admin'] == False:
+        if session['admin'] == True:
             return render_template('home.html')
         else:
             all_data = {}
