@@ -24,7 +24,7 @@ flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile",
             "https://www.googleapis.com/auth/userinfo.email", "openid"],
-    redirect_uri=os.getenv("https://annovote.onrender.com/callback")
+    redirect_uri="https://annovote.onrender.com/callback"
 )
 
 @app.route('/login', methods=['GET', 'POST'])
