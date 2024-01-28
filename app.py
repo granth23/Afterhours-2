@@ -12,11 +12,11 @@ from datetime import datetime
 from db import new_position, new_applicant, all_available_positions, aplicants_for_position, positions_for_voter, data_for_applicant, new_vote
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = "secret"
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
-GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_ID = os.getenv("614245365180-sqfhaa5ncfjkmbid59bmnk44feumdl1k.apps.googleusercontent.com")
 client_secrets_file = os.path.join(
     pathlib.Path(__file__).parent, "oauth.json")
 
@@ -24,7 +24,7 @@ flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile",
             "https://www.googleapis.com/auth/userinfo.email", "openid"],
-    redirect_uri=os.getenv("CALLBACK")
+    redirect_uri=os.getenv("https://annovote.onrender.com/callback")
 )
 
 @app.route('/login', methods=['GET', 'POST'])
